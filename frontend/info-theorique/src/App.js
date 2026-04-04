@@ -1,17 +1,17 @@
-import { InlineMath, BlockMath } from 'react-katex';
-import Navbar from './components/Navbar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
+import Bibliotheque from "./pages/Bibliothèque";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
-      <header className="App-header">
-        <BlockMath>
-          {`\\sum_{k=1}^n\\frac{1}{k^2}=\\frac{\\pi^2}{6}`}
-        </BlockMath>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<Bibliotheque />} />
+        <Route path="/bibliotheque" element={<Bibliotheque />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
