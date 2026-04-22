@@ -4,6 +4,9 @@ theme:
   name: material
   features:
     - content.code.copy
+  icon:
+    admonition:
+      abstract: octicons/repo-16
 
 markdown_extensions:
   - admonition
