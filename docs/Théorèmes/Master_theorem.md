@@ -49,5 +49,53 @@ Pour l'instant, considérons le cas où $f$ est une fonction polynomiale de la f
 
     - Hérédité : 
         
-        Supposons $T(b^p)=da^p+cb^{pk}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i$ pour un certain rang $p\ge1$.\\
-        
+        Supposons $T(b^p)=da^p+cb^{pk}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i$ pour un certain rang $p\ge1$. On a :
+
+        $$
+        \begin{align}
+        T(b^{p+1}) & = aT(b^p)+cb^{(p+1)k}\\
+        & = a(da^p+cb^{pk}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i)+cb^{(p+1)k}\\
+        & = da^{p+1}+cab^{pk}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i+cb^{(p+1)k}\\
+        & = da^{p+1}+cb^{(p+1)k}(\frac{a}{b^k}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i+1)\\
+        & = da^{p+1}+cb^{(p+1)k}(\sum_{i=0}^{p-1}(\frac{a}{b^k})^{i+1}+1)\\
+        & = da^{p+1}+cb^{(p+1)k}(\sum_{i=1}^{p}(\frac{a}{b^k})^i+1)\\
+        & = da^{p+1}+cb^{(p+1)k}\sum_{i=0}^{p}(\frac{a}{b^k})^i\\
+        \end{align}
+        $$
+
+    Par récurrence, l'égalité est vérifiée pour tout $p\in\mathbb{N}$.
+
+    Soit $p\in\mathbb{N}$, comme démontré précédemment on a 
+
+    $$
+    T(b^p) = \delta(b^p)+cb^{pk}\gamma(b^p)
+    $$
+
+    avec $\delta(b^p)=da^p$ et $\gamma(b^p)=da^{p+1}+cb^{pk}\sum_{i=0}^{p-1}(\frac{a}{b^k})^i$.
+
+    En particulier, $\delta(b^p)=da^p=db^{log_b(a^p)}=db^{plog_b(a)}=d(b^p)^{log_b(a)}=\Theta((b^p)^{log_b(a)})$.
+    
+    Nous pouvons commencer la disjonction de cas :
+
+    - Si $a<b^k$, $\gamma(b^p)$ est bornée car c'est une somme géométrique de raison $\frac{a}{b^k}<1$. On a :
+
+    $$
+    T(b^p)=\delta(b^p)+cb^{pk}\gamma(b^p)=\Theta((b^p)^{log_b(a)})+\Theta((b^p)^{k})=\Theta((b^p)^{k})
+    $$
+
+    - Si $a=b^k$, $\gamma(b^p)=\sum_{i=0}^{p-1}1=p=log_b(b^p)$. On a :
+
+    $$
+    T(b^p)=\delta(b^p)+cb^{pk}\gamma(b^p)=\Theta((b^p)^{log_b(a)})+\Theta((b^p)^{k})log_b(b^p)=\Theta((b^p)^{k}log_b(b^p))
+    $$
+
+    - Si $a>b^k$, ...
+
+    Passons maintenant à la généralisation. 
+    
+    Soit $n\in\mathbb{N}$. Prenons $p\in\mathbb{N}$ tel que $b^p\leq n < b^{p+1}$. Par croissance de $T$ on a :
+
+    $$
+    T(b^p) \leq T(n) < T(b^{p+1})
+    $$
+
