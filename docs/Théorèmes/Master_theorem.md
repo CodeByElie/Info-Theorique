@@ -89,7 +89,23 @@ Pour l'instant, considérons le cas où $f$ est une fonction polynomiale de la f
     T(b^p)=\delta(b^p)+cb^{pk}\gamma(b^p)=\Theta((b^p)^{log_b(a)})+\Theta((b^p)^{k})log_b(b^p)=\Theta((b^p)^{k}log_b(b^p))
     $$
 
-    - Si $a>b^k$, ...
+    - Si $a>b^k$, alors $\gamma(b^p)=\Theta(\frac{a^{p-1}}{b^{(p-1)k}})=\Theta(\frac{b^k}{a}\frac{a^p}{b^{pk}})=\Theta(\frac{a^p}{b^{pk}})$. Ainsi :
+    
+    $$
+    \begin{align}
+    cb^{pk}\gamma(b^p) & = \Theta(cb^{pk}\frac{a^p}{b^{pk}})\\
+    & = \Theta(ca^p)\\
+    & = \Theta(cb^{plog_b(a)})\\
+    & = \Theta((b^p)^{log_b(a)})\\
+    \end{align}
+    $$
+
+    On a alors :
+
+    $$
+    T(b^p)=\Theta((b^p)^{log_b(a)})+\Theta((b^p)^{log_b(a)})=\Theta((b^p)^{log_b(a)})
+    $$
+
 
     Passons maintenant à la généralisation. 
     
