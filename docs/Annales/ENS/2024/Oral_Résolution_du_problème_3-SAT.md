@@ -26,7 +26,9 @@
 Donner un algorithme en temps $\widetilde{\mathcal{O}}(2^n)$ pour résoudre 3-SAT.
 
 ??? note "Solution"
+    Afin de déterminer si une 3-CNF est valide ou non, nous pouvons simplement tester toutes les valuations possibles. À chaque valuation, nous évaluons la formule booléenne : si le résultat est $1$, la formule et satisfiable, si le résultat est $0$, nous testons une autre valuation. Si nous avons testé toutes les valuations sans résultat positif, la formule n'est pas satisfiable.
 
+    L'évaluation de la formule se fait en $\mathcal{O}(m)$ opérations binaires (car il y a $m$ clauses) et il existe $\mathcal{O}(2^n)$ valuations différentes ($n$ littéraux donc moins de $n$ variables différentes). La complexité de l'algorithme est donc en $\widetilde{\mathcal{O}}(2^n)$.
 
 !!! quote "Énoncé"
     Pour toute 3-CNF $\Phi$ et toute variable $x \in X$, on note $\Phi_{|x}$ la 3-CNF obtenue en évaluant $x$ à $1$
