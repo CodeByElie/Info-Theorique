@@ -2,9 +2,11 @@ site_name: Info-Théorique
 
 theme:
   name: material
+  language: fr
   features:
     - content.code.copy
   icon:
+    logo: material/pi-box
     admonition:
       abstract: octicons/repo-16
 
@@ -18,7 +20,11 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
