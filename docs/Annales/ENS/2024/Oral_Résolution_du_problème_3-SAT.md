@@ -16,16 +16,17 @@
 
     On considère le problème 3-SAT :
 
-    - Entrée : une 3-CNF contenant n littéraux et m clauses. On supposera $m = \mathcal{O}(n)$.
+    - Entrée : une 3-CNF contenant $n$ littéraux et $m$ clauses. On supposera $m = \mathcal{O}(n)$.
     - Sortie : Vrai si la formule est satisfiable, Faux sinon.
 
-    On s’intéresse à des algorithmes efficaces pour résoudre ce problème, en temps $\widetilde{\mathcal{O}} (2\alpha n)$ où $\alpha$ est une
+    On s’intéresse à des algorithmes efficaces pour résoudre ce problème, en temps $\widetilde{\mathcal{O}} (2^{\alpha n})$ où $\alpha$ est une
     constante et la notation $\widetilde{\mathcal{O}}$ omet les facteurs polynomiaux en $n$.
 
 ### Question 1
 Donner un algorithme en temps $\widetilde{\mathcal{O}}(2^n)$ pour résoudre 3-SAT.
 
 ??? note "Solution"
+
 
 !!! quote "Énoncé"
     Pour toute 3-CNF $\Phi$ et toute variable $x \in X$, on note $\Phi_{|x}$ la 3-CNF obtenue en évaluant $x$ à $1$
