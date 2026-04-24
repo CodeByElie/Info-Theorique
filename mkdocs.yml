@@ -9,6 +9,8 @@ theme:
     logo: material/pi-box
     admonition:
       abstract: octicons/repo-16
+  palette:
+    primary: light blue
 
 markdown_extensions:
   - admonition
