@@ -32,7 +32,7 @@ Pour l'instant, considérons le cas où $f$ est une fonction polynomiale de la f
     - Si $a=b^k$ alors $T(n)=\Theta(n^klog_b(n))$
     - Si $a>b^k$ alors $T(n)=\Theta(n^{log_b(a)})$
 
-!!! note "Démonstration"
+??? note "Démonstration"
     Montrons le résultat vrai pour tout $n\in\mathbb{N}$ de la forme $n=b^p$ avec $p\in\mathbb{N}$. La généralisation est ensuite immédiate.
 
     Le premier objectif est d'abord de montrer par récurrence sur $p$ que :
@@ -115,3 +115,35 @@ Pour l'instant, considérons le cas où $f$ est une fonction polynomiale de la f
     T(b^p) \leq T(n) < T(b^{p+1})
     $$
 
+    Or pour $f\in\{n\mapsto n^k,n\mapsto n^klog_b(n),n\mapsto n^{log_b(a)} \}$, $f(bn)=\Theta(f(n))$.
+    Par encadrement suivant le cas,
+
+    $$
+    T(n)=\Theta(f(n))
+    $$
+
+    Ce qui conclut la démonstration.
+
+Par exemple, l'algorithme de **Karatsuba** a un temps d'éxecution $T_K$ exprimé par la formule de récurrence suivante :
+
+$$
+T_K(n) = 3T_K(\frac{n}{2})+\Theta(n)
+$$
+
+On est dans le cas où $a=3$, $b=2$ et $k=1$. Comme $3>2^1$ (cas 3), on a :
+
+$$
+T_K(n)=\Theta(n^{log_2(3)})\simeq\Theta(n^{1,58})
+$$
+
+Autre exemple, le **tri fusion** a un temps d'éxecution $T_F$ exprimé par la formule de récurrence suivante :
+
+$$
+T_F(n) = 2T_F(\frac{n}{2})+\Theta(n)
+$$
+
+On est dans le cas où $a=2$, $b=2$ et $k=1$. Comme $2=2^1$ (cas 2), on a :
+
+$$
+T_F(n)=\Theta(nlog_2(n))
+$$
