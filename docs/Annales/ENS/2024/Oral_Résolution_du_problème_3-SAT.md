@@ -45,7 +45,10 @@ est satisfiable ou $\Phi_{|\neg x}$ l’est.
 2. Soit $x$ une variable telle que le littéral $\neg x$ n’apparaît pas dans $\Phi$. Montrer que $\Phi$ est satisfiable si et seulement
 si $\Phi_{|x}$ est satisfiable.
 
-??? note "Solution"
+!!! note "Solution"
+    1. Si $\Phi$ est satisfiable, alors il existe une valuation $f:X\mapsto \{0,1\}^n$ qui satisfait $\Phi$. Lorsque l'on applique cette valuation à $x$, $\Phi_{|f(x)}$ reste satisfiable grâce à cette même valuation. Soit $f(x)=0$, auquel cas $\Phi_{|\neg x}$ reste satisfiable, soit $f(x)=1$, auquel cas $\Phi_{|x}$ reste satisfiable. Réciproquement si $\Phi_{|x}$ (ou $\Phi_{|\neg x}$) est satisfiable, alors il existe une valuation $f':X\backslash \{x\} \mapsto \{0,1\}^n$ qui satisfait $\Phi_{|x}$ (ou $\Phi_{|\neg x}$). On peut étendre $f'$ à tout $X$ en posant $f(x)=1$ (ou $f(x)=0$) et comme  $\Phi$ est satisfiable en évaluant $x$ à $1$ (ou à $0$) alors $\Phi$ est satisfiable par $f$.  
+
+    2. Si $\Phi$ est satisfiable, alors il existe une valuation $f:X\mapsto \{0,1\}^n$ qui satisfait $\Phi$. Comme il n'existe pas de $\neg x$ dans $\Phi$, on en déduit que l'évaluation $f'$ qui renvoie $1$ sur $x$ et $f$ sinon satisfait $\Phi$. En effet, comme $\neg x$ n'est pas dans $\Phi$, appliquer $1$ à $x$ ne fait qu'ajouter un élément neutre ou plus à la conjonction de clauses de $\Phi$. $Phi_{|x}$ est donc satisfiable. La réciproque est vérifiée en 1.
 
 ### Question 3
 1. Soit $(x \vee y \vee z)$ une clause de $\Phi$. Montrer que $\Phi$ est satisfiable si et seulement si $\Phi_{|x}$ ou $\Phi_{|\neg xy}$
